@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrogenIQ | Professional Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #1e293b;
+            --accent: #0ea5e9;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --success: #10b981;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--secondary);
+            background-color: var(--light);
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+        }
+        
+        .contact-info {
+            text-align: right;
+            font-size: 0.9rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+            background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3') no-repeat center center/cover;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: var(--secondary);
+        }
+        
+        .highlight-box {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .highlight-item {
+            padding: 15px;
+            background: var(--light);
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .highlight-item i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Service Cards */
+        .section {
+            padding: 70px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: var(--primary-dark);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .service-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .service-table th {
+            background: var(--light-gray);
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .service-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .service-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .student-rate {
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        .business-rate {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .included {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .included i {
+            color: var(--success);
+            margin-right: 8px;
+        }
+        
+        /* Pricing Table */
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .pricing-table th {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .pricing-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .pricing-table tr:nth-child(even) {
+            background: var(--light);
+        }
+        
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Why Choose Us */
+        .why-us {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+        
+        .why-us .section-title {
+            color: white;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .benefit-card i {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo {
+                justify-content: center;
+            }
+            
+            .contact-info {
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <div class="logo-text">TrogenIQ</div>
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> s229234720@mandela.ac.za</p>
+                <p><i class="fas fa-clock"></i> 1-3 days standard | Same-day available</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Professional Digital Services</h1>
+            <p>High-quality website creation, document formatting, and data entry services tailored for students and businesses</p>
+            
+            <div class="highlight-box">
+                <h2>Service Highlights</h2>
+                <div class="highlight-grid">
+                    <div class="highlight-item">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h3>Fast Turnaround</h3>
+                        <p>1-3 days standard | Same-day available</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <h3>Flexible Payment</h3>
+                        <p>50% upfront, 50% on completion</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-star"></i>
+                        <h3>Quality Guaranteed</h3>
+                        <p>2 free revisions included</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website Services -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Website Creation Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="card-header">
+                        <h3>Basic Website</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>5 pages, mobile responsive design</p>
+                        <table class="service-table">
+                            <tr>
+                                <th>Service</th>
+                                <th>Price</th>
+                            </tr>
+                            <tr>
+                                <td>Student Rate</td>
+                                <td class="student-rate">R650</td>
+                            </tr>
+                            <tr>
+                                <td>Business Rate</td>
+                                <td class="business-rate">R1,150</td>
+                            </tr>
+                        </table>
+                        <div class="included">
+                            <p><i class="fas fa-check-circle"></i> Domain setup assistance</p>
+                            <p><i class="fas fa-check-circle"></i> Mobile optimization</p>
+                            <p><i class="fas fa-check-circle"></i> SEO basics</p>
+                            <p><i class="fas fa-check-circle"></i> 2 free revisions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="card-header">
+                        <h3>Business Website</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>8 pages, contact forms, SEO basics</p>
+                        <table class="service-table">
+                            <tr>
+                                <th>Service</th>
+                                <th>Price</th>
+                            </tr>
+                            <tr>
+                                <td>Student Rate</td>
+                                <td class="student-rate">R950</td>
+                            </tr>
+                            <tr>
+                                <td>Business Rate</td>
+                                <td class="business-rate">R1,650</td>
+                            </tr>
+                        </table>
+                        <div class="included">
+                            <p><i class="fas fa-check-circle"></i> Domain setup assistance</p>
+                            <p><i class="fas fa-check-circle"></i> Mobile optimization</p>
+                            <p><i class="fas fa-check-circle"></i> SEO basics</p>
+                            <p><i class="fas fa-check-circle"></i> 2 free revisions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="card-header">
+                        <h3>E-commerce Website</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Product pages, payment integration</p>
+                        <table class="service-table">
+                            <tr>
+                                <th>Service</th>
+                                <th>Price</th>
+                            </tr>
+                            <tr>
+                                <td>Student Rate</td>
+                                <td class="student-rate">R1,350</td>
+                            </tr>
+                            <tr>
+                                <td>Business Rate</td>
+                                <td class="business-rate">R2,500</td>
+                            </tr>
+                        </table>
+                        <div class="included">
+                            <p><i class="fas fa-check-circle"></i> Domain setup assistance</p>
+                            <p><i class="fas fa-check-circle"></i> Mobile optimization</p>
+                            <p><i class="fas fa-check-circle"></i> SEO basics</p>
+                            <p><i class="fas fa-check-circle"></i> 2 free revisions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="section" style="background-color: #f0f7ff;">
+        <div class="container">
+            <div class="services-grid">
+                <!-- Document Formatting -->
+                <div class="service-card">
+                    <div class="card-header" style="background-color: #0ea5e9;">
+                        <h3>Document Formatting Services</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="service-table">
+                            <tr>
+                                <th>Service</th>
+                                <th>Student</th>
+                                <th>Business</th>
+                            </tr>
+                            <tr>
+                                <td>CV Design & Formatting</td>
+                                <td class="student-rate">R150</td>
+                                <td class="business-rate">R250</td>
+                            </tr>
+                            <tr>
+                                <td>Cover Letter</td>
+                                <td class="student-rate">R80</td>
+                                <td class="business-rate">R130</td>
+                            </tr>
+                            <tr>
+                                <td>Academic Assignment</td>
+                                <td class="student-rate">R60</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Thesis/Dissertation</td>
+                                <td class="student-rate">R280</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Business Proposal</td>
+                                <td>-</td>
+                                <td class="business-rate">R200</td>
+                            </tr>
+                            <tr>
+                                <td>Professional Report</td>
+                                <td class="student-rate">R120</td>
+                                <td class="business-rate">R220</td>
+                            </tr>
+                            <tr>
+                                <td>Presentation Design</td>
+                                <td>-</td>
+                                <td class="business-rate">R300</td>
+                            </tr>
+                        </table>
+                        <div class="included">
+                            <p><i class="fas fa-check-circle"></i> Professional templates</p>
+                            <p><i class="fas fa-check-circle"></i> Print-ready files</p>
+                            <p><i class="fas fa-check-circle"></i> Consistent styling</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Entry -->
+                <div class="service-card">
+                    <div class="card-header" style="background-color: #0ea5e9;">
+                        <h3>Data Entry Services</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="service-table">
+                            <tr>
+                                <th>Service</th>
+                                <th>Student</th>
+                                <th>Business</th>
+                            </tr>
+                            <tr>
+                                <td>Excel Data Entry (per 50 entries)</td>
+                                <td class="student-rate">R20</td>
+                                <td class="business-rate">R35</td>
+                            </tr>
+                            <tr>
+                                <td>Form Processing (per 50 entries)</td>
+                                <td class="student-rate">R18</td>
+                                <td class="business-rate">R30</td>
+                            </tr>
+                           
+                            <tr>
+                                <td>Research Data Collection (per hour)</td>
+                                <td class="student-rate">R25</td>
+                                <td class="business-rate">R50</td>
+                            </tr>
+                            <tr>
+                                <td>Database Management (per hour)</td>
+                                <td>-</td>
+                                <td class="business-rate">R50</td>
+                            </tr>
+                        </table>
+                        <div class="included">
+                            <p><i class="fas fa-check-circle"></i> Data validation</p>
+                            <p><i class="fas fa-check-circle"></i> Formatting</p>
+                            <p><i class="fas fa-check-circle"></i> Error checks</p>
+                            <p><i class="fas fa-check-circle"></i> Backup files</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Deals -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Smart Package Deals</h2>
+            <table class="pricing-table">
+                <tr>
+                    <th>Package</th>
+                    <th>Student Rate</th>
+                    <th>Business Rate</th>
+                </tr>
+                <tr>
+                    <td>Job Seeker Package — CV + Cover Letter + LinkedIn Profile</td>
+                    <td class="student-rate">R280</td>
+                    <td class="business-rate">R500</td>
+                </tr>
+                <tr>
+                    <td>Business Starter Package — Basic Website + Business Card + Email Setup</td>
+                    <td class="student-rate">R850</td>
+                    <td class="business-rate">R1,500</td>
+                </tr>
+                <tr>
+                    <td>Academic Success Package — Thesis Formatting + Data Entry + Presentation Design</td>
+                    <td class="student-rate">R650</td>
+                    <td class="business-rate">R950</td>
+                </tr>
+            </table>
+            <p style="text-align: center; margin-top: 20px; font-style: italic;">
+                ✨ Optional: Add branding guide for +R300
+            </p>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section why-us">
+        <div class="container">
+            <h2 class="section-title">Why Choose TrogenIQ?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast Turnaround</h3>
+                    <p>1-3 days standard delivery with same-day options available</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Student-Friendly Rates</h3>
+                    <p>Special pricing for students and academic projects</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-users"></i>
+                    <h3>50+ Satisfied Clients</h3>
+                    <p>Proven track record of quality service</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Flexible Communication</h3>
+                    <p>WhatsApp, email, or video calls - your choice</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-card">
+                <i class="fas fa-paper-plane"></i>
+                <h2>Get Your Free Quote Today</h2>
+                <p>Contact us to discuss your project requirements and receive a personalized quote</p>
+                <p><strong>Email:</strong> s229234720@mandela.ac.za</p>
+                <a href="mailto:s229234720@mandela.ac.za" class="btn">
+                    <i class="fas fa-envelope"></i> Send Inquiry
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 TrogenIQ. All rights reserved.</p>
+            <p>Professional digital services for students and businesses</p>
+            <p style="margin-top: 20px;">s229234720@mandela.ac.za</p>
+        </div>
+    </footer>
+</body>
+</html>
